@@ -709,8 +709,8 @@
     .pill-btn[aria-selected="true"]{
       color: #0b1220;
       background: linear-gradient(135deg, rgba(250,166,26,0.95), rgba(255, 200, 105, 0.55));
-      box-shadow: 0 16px 40px rgba(250,166,26,0.95);
-      border-color: rgba(250,166,26,0.95);
+      box-shadow: 0 16px 40px rgba(255, 249, 238, 0.95);
+      border-color: rgba(250, 235, 209, 0.95);
     }
 
     .plan-panel{ position: relative; z-index: 2; padding: 10px 10px 6px; }
@@ -973,8 +973,8 @@
       font-size:14px;
       background:#fff;
     }
-        .logo-tile img[alt="Water and Sewage Department"]{
-  max-height: 50px;     /* increase visual weight */
+    .logo-tile img[alt="Water and Sewage Department"]{
+  max-height: 55px;     /* increase visual weight */
   transform: scale(1.08);
 }
 .logo-tile img[alt="St. Clair County State Bank"]{
@@ -1053,20 +1053,20 @@
     <div class="carousel-viewport">
       <div class="carousel-track">
 
-        <div class="carousel-item active" data-title="Add-on control">
+        <div class="carousel-item active" data-title="Extension Risk">
           <div class="carousel-caption">
             <strong>Control extensions and add-ons</strong>
-            <p>Allow trusted add-ons and block risky or unauthorized extensions centrally.</p>
+            <p>Allow approved extensions and block risky or unauthorized add-ons across browsers.</p>
           </div>
           <video autoplay muted loop playsinline preload="metadata">
             <source src="videos/add on management.mp4" type="video/mp4">
           </video>
         </div>
 
-        <div class="carousel-item" data-title="Extension management">
+        <div class="carousel-item" data-title="Hardening &amp; Compliance">
           <div class="carousel-caption">
-            <strong>Standardize browser policies at scale</strong>
-            <p>Apply consistent browser settings across teams and locations in minutes.</p>
+            <strong>Harden browsers with compliant baselines</strong>
+            <p>Enforce secure settings, standardize configurations, and track compliance across endpoints.</p>
           </div>
           <video autoplay muted loop playsinline preload="metadata">
             <source src="videos/extension management.mp4" type="video/mp4">
@@ -1075,8 +1075,8 @@
 
         <div class="carousel-item" data-title="Web filtering">
           <div class="carousel-caption">
-            <strong>Enforce safe browsing</strong>
-            <p>Reduce exposure to risky sites using policy-driven web access controls.</p>
+            <strong>Block risky and non-compliant web access</strong>
+            <p>Restrict categories, prevent access to malicious sites, and reduce phishing exposure.</p>
           </div>
           <video muted loop playsinline preload="metadata">
             <source src="videos/web filter.mp4" type="video/mp4">
@@ -1122,7 +1122,7 @@
 
       <div class="card">
         <h3>Web Filtering & Threat Defense</h3>
-        <p>Reduce web risk with safer browsing controls and policy-driven protection.</p>
+        <p>Block risky categories and enforce safe access rules.</p>
         <ul class="feature-list">
           <li>
             <strong><a href="#">Website access controls</a></strong>
@@ -1212,7 +1212,7 @@
         <span>endpoints secured</span>
       </div>
       <div class="metric">
-        <strong>6+ years</strong>
+        <strong>8+ years</strong>
         <span>in the industry</span>
       </div>
       <div class="metric">
@@ -1277,10 +1277,10 @@
           </div>
         </div>
 
-        <p class="pricing-footnote" id="pricingFootnote">
-          *As the number of endpoints increases, the price per endpoint decreases.<br/>
-          For full pricing, visit
-          <a href="https://store.manageengine.com/browser-security/" target="_blank" rel="noopener">
+        <p class="pricing-footnote" id="pricingFootnote" style="display:none;">
+          The above-mentioned price is for 1000 endpoints. As the number of endpoints increases, the price per endpoint decreases.<br/>
+          For more details on pricing for different endpoint counts, please visit
+          <a href="https://store.manageengine.com/secure-browser/" target="_blank" rel="noopener">
             ManageEngine Store
           </a>
         </p>
@@ -1468,7 +1468,6 @@
     },
     pro: {
       title: "Professional Edition",
-      detail: "Annual pricing · For 1000 endpoints",
       badge: "$4",
       amt: "$4",
       unit: "/endpoint per year",
