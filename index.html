@@ -169,17 +169,17 @@
     }
 
     .hero-layout{
-      display:grid;
-      grid-template-columns:minmax(0, 1.02fr) minmax(0, 0.98fr);
-      gap:48px;
-      align-items:center;
-    }
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:32px;
+}
 
     .hero-copy{
-      text-align:left;
-      max-width:680px;
-    }
-
+  text-align:center;
+  max-width:760px;
+}
     .hero-title-main{
       color:#0b1220;
       font-weight:900;
@@ -246,12 +246,11 @@
       opacity:0.95;
     }
 
-    .hero-visual{
-      position:relative;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    }
+    ..hero-visual{
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
 
     .hero-ui-frame{
       position:relative;
@@ -290,11 +289,6 @@
         gap:32px;
       }
 
-      .hero-copy{
-        max-width:860px;
-        margin:0 auto;
-        text-align:center;
-      }
 
       .hero-buttons{
         justify-content:center;
@@ -320,6 +314,45 @@
         min-width:240px;
       }
     }
+    .hero{
+  padding: 64px 0 32px;
+}
+
+.hero-layout{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:20px;
+}
+
+.hero-copy{
+  max-width:760px;
+  text-align:center;
+}
+
+.hero-buttons{
+  justify-content:center;
+  gap:20px;
+  margin-top:18px;
+}
+
+.hero small{
+  margin-top:16px;
+}
+
+.hero-visual{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin-top:8px;
+}
+
+.hero-ui-frame{
+  max-width:950px;
+  width:100%;
+  padding:12px;
+}
 
     /* ---------- TRUST LOGOS STRIP ---------- */
     .trust-logos-strip{
