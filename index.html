@@ -5785,17 +5785,21 @@
               <h3 class="h2">Browser Hardening Policies</h3>
               <p class="lead">Deploy and enforce secure browser configurations across all endpoints from a centralized console.</p>
             </div>
-            <div class="cap__visual mock mock--tracing">
-              <div class="mock__audit-head"><span class="mock__audit-title">Browser Inventory</span></div>
-              <div class="mock__tracing-table">
-                <div class="mock__tracing-row mock__tracing-row--head">
-                  <span>Endpoint</span><span>Browser</span><span>Version</span><span>Status</span></div>
-                <div class="mock__tracing-row"><span>FIN-LAP-082</span><span>Chrome</span><span>Managed</span><span
-                    class="badge badge--green">Compliant</span></div>
-                <div class="mock__tracing-row"><span>HR-WIN-144</span><span>Edge</span><span>Managed</span><span
-                    class="badge badge--yellow">Review</span></div>
-                <div class="mock__tracing-row"><span>OPS-VM-031</span><span>Firefox</span><span>Managed</span><span
-                    class="badge badge--green">Compliant</span></div>
+            <div class="cap__visual mock mock--policy">
+              <div class="mock__policy-head">
+                <span class="mock__chip">Browser_Hardening_Baseline</span>
+                <button class="mock__btn mock__btn--primary">Deploy</button>
+              </div>
+              <div class="mock__policy-section mock__policy-section--hl">
+                <div class="mock__policy-section-title">Security configuration</div>
+                <div class="mock__policy-row mock__policy-row--toggle"><span>Block password saving in browsers</span><span class="mock__toggle mock__toggle--on" aria-label="on"></span></div>
+                <div class="mock__policy-row mock__policy-row--toggle"><span>Disable autofill for sensitive forms</span><span class="mock__toggle mock__toggle--on" aria-label="on"></span></div>
+                <div class="mock__policy-row mock__policy-row--toggle"><span>Prevent changes to managed browser settings</span><span class="mock__toggle mock__toggle--on" aria-label="on"></span></div>
+              </div>
+              <div class="mock__policy-section">
+                <div class="mock__policy-section-title">Policy scope</div>
+                <div class="mock__policy-row"><span>Target group</span><span class="mock__select">Finance endpoints</span></div>
+                <div class="mock__policy-row"><span>Browsers</span><span class="mock__select">Chrome, Edge, Firefox</span></div>
               </div>
             </div>
           </article>
@@ -5804,17 +5808,24 @@
               <h3 class="h2">Browser Lockdown </h3>
               <p class="lead">Run browsers in kiosk mode with a whitelist of trusted sites to enforce controlled browsing.</p>
             </div>
-            <div class="cap__visual mock mock--policy">
-              <div class="mock__policy-head"><span class="mock__chip">Browser_Config_Policy</span><button
-                  class="mock__btn mock__btn--primary">Deploy</button></div>
+            <div class="cap__visual mock mock--policy mock--encrypt">
+              <div class="mock__policy-head">
+                <span class="mock__chip">Kiosk_Browsing_Policy</span>
+                <button class="mock__btn mock__btn--primary">Save policy</button>
+              </div>
               <div class="mock__policy-section mock__policy-section--hl">
-                <div class="mock__policy-section-title">Configuration settings</div>
-                <div class="mock__policy-row mock__policy-row--toggle"><span>Enforce approved browser
-                    settings</span><span class="mock__toggle mock__toggle--on" aria-label="on"></span></div>
-                <div class="mock__policy-row mock__policy-row--toggle"><span>Prevent users from changing managed
-                    settings</span><span class="mock__toggle mock__toggle--on" aria-label="on"></span></div>
-                <div class="mock__policy-row mock__policy-row--toggle"><span>Apply policies by computer
-                    group</span><span class="mock__toggle mock__toggle--on" aria-label="on"></span></div>
+                <div class="mock__policy-section-title">Lockdown controls</div>
+                <div class="mock__policy-row"><span>Allowed websites</span><span class="mock__select">Approved list only</span></div>
+                <div class="mock__policy-row mock__policy-row--toggle"><span>Disable address bar and navigation controls</span><span class="mock__toggle mock__toggle--on" aria-label="on"></span></div>
+                <div class="mock__policy-row mock__policy-row--toggle"><span>Disable menus, toolbars, and browser shortcuts</span><span class="mock__toggle mock__toggle--on" aria-label="on"></span></div>
+              </div>
+              <div class="mock__restrict" aria-hidden="true">
+                <div class="mock__restrict-head"><span class="mock__restrict-warn">!</span><span class="mock__restrict-title">Access restricted</span><button class="mock__restrict-close">×</button></div>
+                <div class="mock__restrict-body">
+                  <p class="mock__restrict-msg">This site is not available in kiosk browsing mode.</p>
+                  <dl class="mock__restrict-meta"><dt>Policy</dt><dd>Approved sites only</dd><dt>Action</dt><dd>Blocked</dd></dl>
+                  <div class="mock__restrict-actions"><button class="mock__btn">OK</button></div>
+                </div>
               </div>
             </div>
           </article>
@@ -5824,19 +5835,14 @@
               <p class="lead">Control which extensions and plugins are allowed to run across your organization's browsers.</p>
             </div>
             <div class="cap__visual mock mock--audit">
-              <div class="mock__audit-head"><span class="mock__audit-title">Add-on Policy</span>
-                <div class="mock__audit-filters"><span class="mock__pill mock__pill--accent">Managed</span><span
-                    class="mock__pill">All browsers</span></div>
+              <div class="mock__audit-head"><span class="mock__audit-title">Add-on Control</span>
+                <div class="mock__audit-filters"><span class="mock__pill mock__pill--accent">Managed</span><span class="mock__pill">All browsers</span></div>
               </div>
               <div class="mock__audit-table">
-                <div class="mock__audit-row mock__audit-row--head">
-                  <span>Add-on</span><span>Browser</span><span>Type</span><span>Action</span></div>
-                <div class="mock__audit-row"><span>Unknown toolbar</span><span>Chrome</span><span>Extension</span><span
-                    class="badge badge--red">Blocked</span></div>
-                <div class="mock__audit-row"><span>Legacy helper</span><span>IE</span><span>BHO</span><span
-                    class="badge badge--yellow">Review</span></div>
-                <div class="mock__audit-row"><span>Approved plugin</span><span>Firefox</span><span>Plugin</span><span
-                    class="badge badge--green">Allowed</span></div>
+                <div class="mock__audit-row mock__audit-row--head"><span>Add-on</span><span>Browser</span><span>Type</span><span>Action</span></div>
+                <div class="mock__audit-row"><span>Unknown coupon toolbar</span><span>Chrome</span><span>Extension</span><span class="badge badge--red">Blocked</span></div>
+                <div class="mock__audit-row"><span>Legacy helper object</span><span>IE</span><span>BHO</span><span class="badge badge--yellow">Review</span></div>
+                <div class="mock__audit-row"><span>Password manager</span><span>Edge</span><span>Extension</span><span class="badge badge--green">Allowed</span></div>
               </div>
             </div>
           </article>
@@ -5846,16 +5852,14 @@
               <p class="lead">Automatically classify unknown websites in real time to keep web filtering accurate against new and emerging threats.</p>
             </div>
             <div class="cap__visual mock mock--temp">
-              <div class="mock__audit-head"><span class="mock__audit-title">Approved Browser List</span></div>
+              <div class="mock__audit-head"><span class="mock__audit-title">Website Categorization</span>
+                <div class="mock__audit-filters"><span class="mock__pill mock__pill--accent">Real-time analysis</span></div>
+              </div>
               <div class="mock__temp-table">
-                <div class="mock__temp-row mock__temp-row--head">
-                  <span>Browser</span><span>Scope</span><span>Status</span></div>
-                <div class="mock__temp-row"><span>Google Chrome</span><span>All users</span><span
-                    class="badge badge--green">Allowed</span></div>
-                <div class="mock__temp-row"><span>Microsoft Edge</span><span>All users</span><span
-                    class="badge badge--green">Allowed</span></div>
-                <div class="mock__temp-row"><span>Unapproved browser</span><span>Default</span><span
-                    class="badge badge--red">Restricted</span></div>
+                <div class="mock__temp-row mock__temp-row--head"><span>Website</span><span>Category</span><span>Policy</span></div>
+                <div class="mock__temp-row"><span>new-saas.example</span><span>Business</span><span class="badge badge--green">Allowed</span></div>
+                <div class="mock__temp-row"><span>unknown-games.example</span><span>Games</span><span class="badge badge--red">Blocked</span></div>
+                <div class="mock__temp-row"><span>new-fileshare.example</span><span>File sharing</span><span class="badge badge--yellow">Review</span></div>
               </div>
             </div>
           </article>
@@ -5865,15 +5869,13 @@
               <p class="lead">Measure and report on browser security compliance against CIS and STIG standards across every endpoint.</p>
             </div>
             <div class="cap__visual mock mock--policy">
-              <div class="mock__policy-head"><span class="mock__chip">Legacy_App_Routing</span></div>
+              <div class="mock__policy-head"><span class="mock__chip">Download_Control_Policy</span></div>
               <div class="mock__policy-section mock__policy-section--hl">
-                <div class="mock__policy-section-title">Application routing rules</div>
-                <div class="mock__policy-row"><span>Legacy ERP portal</span><span class="mock__select">Open in IE
-                    mode</span></div>
-                <div class="mock__policy-row"><span>Finance app</span><span class="mock__select">Assigned Java
-                    version</span></div>
-                <div class="mock__policy-row"><span>Modern SaaS</span><span class="mock__select">Default browser</span>
-                </div>
+                <div class="mock__policy-section-title">Download rules</div>
+                <div class="mock__policy-row"><span>Executable files</span><span class="mock__select mock__select--block">Block</span></div>
+                <div class="mock__policy-row"><span>Compressed archives</span><span class="mock__select">Allow from trusted sites</span></div>
+                <div class="mock__policy-row"><span>Unknown or uncategorized sites</span><span class="mock__select mock__select--block">Restrict</span></div>
+                <div class="mock__policy-row"><span>Policy action</span><span class="mock__select">Warn and log</span></div>
               </div>
             </div>
           </article>
@@ -5883,14 +5885,15 @@
               <p class="lead">Use kiosk-style browser lockdown, isolate untrusted browsing, control website access, and
                 restrict unauthorized browser uploads or downloads.</p>
             </div>
-            <div class="cap__visual mock mock--policy">
-              <div class="mock__policy-head"><span class="mock__chip">Web_Control_Policy</span></div>
-              <div class="mock__policy-section mock__policy-section--hl">
-                <div class="mock__policy-section-title">Web and browser controls</div>
-                <div class="mock__checkboxes"><label class="is-on"><span class="mock__check"></span> Browser
-                    lockdown</label><label class="is-on"><span class="mock__check"></span> Browser
-                    isolation</label><label class="is-on"><span class="mock__check"></span> Web filter</label><label
-                    class="is-on"><span class="mock__check"></span> Upload/download restriction</label></div>
+            <div class="cap__visual mock mock--audit">
+              <div class="mock__audit-head"><span class="mock__audit-title">Compliance Summary</span>
+                <div class="mock__audit-filters"><span class="mock__pill mock__pill--accent">CIS</span><span class="mock__pill">STIG</span></div>
+              </div>
+              <div class="mock__audit-table">
+                <div class="mock__audit-row mock__audit-row--head"><span>Check</span><span>Browser</span><span>Endpoints</span><span>Status</span></div>
+                <div class="mock__audit-row"><span>Password manager disabled</span><span>Chrome</span><span>128</span><span class="badge badge--green">Pass</span></div>
+                <div class="mock__audit-row"><span>Pop-ups restricted</span><span>Edge</span><span>96</span><span class="badge badge--green">Pass</span></div>
+                <div class="mock__audit-row"><span>Risky protocol handlers</span><span>Firefox</span><span>14</span><span class="badge badge--yellow">Review</span></div>
               </div>
             </div>
           </article>
