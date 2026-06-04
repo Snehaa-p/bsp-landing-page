@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -5759,148 +5760,368 @@
   </section>
 
   <!-- CAPABILITIES -->
-  <section class="cap" id="capabilities">
-    <div class="container">
-      <header class="section__head section__head--center">
-        <h2 class="h1">Manage and secure enterprise browsers from one console.</h2>
-        <p class="section__sub">Use Browser Security Plus to gain browser visibility, enforce secure configurations,
-          control add-ons, route legacy apps, isolate risky browsing, and track browser activity.</p>
-      </header>
-      <div class="cap__layout">
-        <aside class="tabstrip-wrap">
-          <div class="tabstrip">
-            <div class="tabstrip__inner" role="tablist" aria-label="Capabilities" aria-orientation="vertical">
-              <button class="tabstrip__btn is-active" role="tab" aria-selected="true" data-tab="insights"> Browser Hardening Policies</button>
-              <button class="tabstrip__btn" role="tab" aria-selected="false" data-tab="configs">Browser Lockdown </button>
-              <button class="tabstrip__btn" role="tab" aria-selected="false" data-tab="addons">Extension & Add-on Management</button>
-              <button class="tabstrip__btn" role="tab" aria-selected="false" data-tab="restriction">AI-Powered Website Categorization</button>
-              <button class="tabstrip__btn" role="tab" aria-selected="false" data-tab="router">Download Filtering & Control</button>
-              <button class="tabstrip__btn" role="tab" aria-selected="false" data-tab="isolation">Browser Compliance Reporting</button>
+ <style>
+.cap-new { font-family: var(--uems-font-body); padding: 80px 0; background: #fff; }
+.cap-new__layout { display: grid; grid-template-columns: 220px 1fr; gap: 1.5rem; align-items: start; }
+.cap-new .tabstrip-new { display: flex; flex-direction: column; gap: 4px; }
+.cap-new .tab-btn {
+  display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+  border-radius: var(--uems-radius-md); border: 1px solid transparent;
+  background: transparent; color: var(--uems-color-text-secondary);
+  font-size: 16px; font-weight: 400; text-align: left; cursor: pointer;
+  transition: background .15s, color .15s; font-family: var(--uems-font-body); line-height: 1.4;
+}
+.cap-new .tab-btn:hover { background: var(--uems-tint-3-surface); color: var(--uems-color-text-primary); }
+.cap-new .tab-btn.active {
+  background: var(--uems-color-primary); color: #fff;
+  border-color: var(--uems-color-primary); font-weight: 600;
+}
+.cap-new .panel { display: none; }
+.cap-new .panel.active { display: block; }
+.cap-new .panel-inner {
+  background: var(--uems-tint-1-surface); border: 1px solid var(--uems-tint-1-border);
+  border-radius: var(--uems-radius-lg); padding: 32px; min-height: 420px;
+}
+.cap-new .panel-title {
+  font-family: var(--uems-font-heading); font-size: var(--uems-font-size-h3);
+  font-weight: var(--uems-font-weight-bold); color: var(--uems-color-text-primary); margin-bottom: 6px;
+}
+.cap-new .panel-lead {
+  font-size: var(--uems-font-size-body); color: var(--uems-color-text-tertiary);
+  margin-bottom: 20px; line-height: 1.6;
+}
+.cap-new .mock {
+  background: #fff; border: 1px solid var(--uems-color-border-default);
+  border-radius: var(--uems-radius-lg); overflow: hidden; box-shadow: var(--uems-shadow-md);
+}
+.cap-new .mock-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px; border-bottom: 1px solid var(--uems-color-border-light);
+  background: var(--uems-tint-3-surface);
+}
+.cap-new .mock-chip {
+  font-size: 11px; font-weight: 600; background: var(--uems-tint-1-surface);
+  color: var(--uems-color-primary); padding: 3px 10px; border-radius: var(--uems-radius-pill);
+}
+.cap-new .mock-btn {
+  font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: var(--uems-radius-md);
+  border: 1px solid var(--uems-color-border-default); background: #fff;
+  color: var(--uems-color-text-primary); cursor: pointer; font-family: var(--uems-font-body);
+}
+.cap-new .mock-section {
+  padding: 10px 14px; border-bottom: 1px solid var(--uems-color-border-light);
+}
+.cap-new .mock-section:last-child { border-bottom: none; }
+.cap-new .mock-section-title {
+  font-size: 10px; font-weight: 700; color: var(--uems-color-text-tertiary);
+  text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px;
+}
+.cap-new .mock-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 5px 0; font-size: 12px; color: var(--uems-color-text-secondary);
+}
+.cap-new .mock-select {
+  font-size: 11px; color: var(--uems-color-text-tertiary); background: var(--uems-tint-3-surface);
+  border: 1px solid var(--uems-color-border-default); border-radius: var(--uems-radius-md); padding: 2px 8px;
+}
+.cap-new .mock-select.block { color: var(--uems-color-error); border-color: var(--uems-color-error); }
+.cap-new .mock-toggle {
+  width: 28px; height: 16px; border-radius: var(--uems-radius-pill);
+  background: #d0d6e0; position: relative; flex-shrink: 0;
+}
+.cap-new .mock-toggle.on { background: var(--uems-color-primary); }
+.cap-new .mock-toggle::after {
+  content: ''; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px;
+  border-radius: 50%; background: #fff; transition: left .15s;
+}
+.cap-new .mock-toggle.on::after { left: 14px; }
+.cap-new .badge {
+  font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: var(--uems-radius-pill);
+  letter-spacing: .04em; text-transform: uppercase;
+}
+.cap-new .badge-green { background: #e7f7ee; color: #0c8a4a; }
+.cap-new .badge-red { background: #fde9eb; color: #b01327; }
+.cap-new .badge-yellow { background: #fef3d3; color: #8a6300; }
+.cap-new .mock-table .mock-row-head {
+  font-size: 10px; font-weight: 600; color: var(--uems-color-text-tertiary);
+  display: grid; padding: 7px 14px; border-bottom: 1px solid var(--uems-color-border-light);
+  background: var(--uems-tint-3-surface); letter-spacing: .03em;
+}
+.cap-new .mock-table .mock-row-data {
+  display: grid; padding: 8px 14px; font-size: 12px; color: var(--uems-color-text-secondary);
+  border-bottom: 1px solid var(--uems-color-border-light);
+}
+.cap-new .mock-table .mock-row-data:last-child { border-bottom: none; }
+.cap-new .cols3 { grid-template-columns: 1fr 90px 70px; }
+.cap-new .cols4 { grid-template-columns: 1fr 70px 70px 65px; }
+.cap-new .mock-filters { display: flex; gap: 6px; }
+.cap-new .mock-pill {
+  font-size: 11px; padding: 3px 10px; border-radius: var(--uems-radius-pill);
+  background: var(--uems-tint-3-surface); color: var(--uems-color-text-tertiary);
+  border: 1px solid var(--uems-color-border-default);
+}
+.cap-new .mock-pill.accent {
+  background: var(--uems-tint-1-surface); color: var(--uems-color-primary); border-color: var(--uems-tint-1-border);
+}
+.cap-new .restrict-box {
+  margin: 10px 14px 14px; border: 1px solid var(--uems-color-error);
+  border-radius: var(--uems-radius-md); overflow: hidden;
+}
+.cap-new .restrict-head {
+  display: flex; align-items: center; gap: 8px; padding: 8px 12px;
+  background: #2d7aff; color: #fff; font-weight: 600; font-size: 12px;
+}
+.cap-new .restrict-warn {
+  width: 18px; height: 18px; border-radius: var(--uems-radius-sm); background: var(--uems-color-highlight);
+  color: var(--uems-color-highlight-text); display: flex; align-items: center;
+  justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0;
+}
+.cap-new .restrict-body { padding: 10px 12px; font-size: 12px; color: var(--uems-color-text-primary); }
+.cap-new .restrict-msg { margin-bottom: 8px; color: var(--uems-color-text-tertiary); }
+.cap-new .restrict-dl {
+  display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; font-size: 11px;
+}
+.cap-new .restrict-dl dt { color: var(--uems-color-text-tertiary); }
+.cap-new .restrict-dl dd { margin: 0; color: var(--uems-color-text-primary); font-weight: 600; }
+.cap-new .leakage-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 6px 0; font-size: 12px; color: var(--uems-color-text-secondary);
+  border-bottom: 1px solid var(--uems-color-border-light);
+}
+.cap-new .leakage-row:last-child { border-bottom: none; }
+.cap-new .tag { font-size: 10px; padding: 2px 7px; border-radius: var(--uems-radius-pill); margin-left: 6px; }
+.cap-new .tag-ai { background: var(--uems-tint-1-surface); color: var(--uems-color-primary); }
+
+@media (max-width: 900px) {
+  .cap-new__layout { grid-template-columns: 1fr; }
+  .cap-new .tabstrip-new {
+    flex-direction: row; flex-wrap: nowrap; overflow-x: auto; gap: 8px;
+    scrollbar-width: none; padding-bottom: 4px;
+  }
+  .cap-new .tabstrip-new::-webkit-scrollbar { display: none; }
+  .cap-new .tab-btn {
+    flex-shrink: 0; white-space: nowrap; border-radius: var(--uems-radius-pill);
+    border: 1px solid var(--uems-color-border-default); background: #fff; color: var(--uems-color-text-secondary);
+  }
+  .cap-new .tab-btn.active { background: var(--uems-color-primary); color: #fff; border-color: var(--uems-color-primary); }
+}
+</style>
+
+<section class="cap-new" id="capabilities">
+  <div class="container">
+    <header class="section__head section__head--center">
+      <h2 class="h1">Manage and secure enterprise browsers from one console.</h2>
+      <p class="section__sub">Use Browser Security Plus to control extensions, filter the web, restrict file activity, lock down browsers, and prevent data leaks — all from one place.</p>
+    </header>
+
+    <div class="cap-new__layout">
+      <aside>
+        <nav class="tabstrip-new" role="tablist" aria-label="Capabilities">
+          <button class="tab-btn active" role="tab" aria-selected="true" onclick="capTab(this,'cap-ext')">Extension management</button>
+          <button class="tab-btn" role="tab" aria-selected="false" onclick="capTab(this,'cap-web')">Web filter</button>
+          <button class="tab-btn" role="tab" aria-selected="false" onclick="capTab(this,'cap-file')">File activity restriction</button>
+          <button class="tab-btn" role="tab" aria-selected="false" onclick="capTab(this,'cap-lock')">Browser lockdown</button>
+          <button class="tab-btn" role="tab" aria-selected="false" onclick="capTab(this,'cap-restrict')">Browser restriction</button>
+          <button class="tab-btn" role="tab" aria-selected="false" onclick="capTab(this,'cap-dlp')">Data leakage prevention</button>
+          <button class="tab-btn" role="tab" aria-selected="false" onclick="capTab(this,'cap-comp')">Browser compliance reporting</button>
+        </nav>
+      </aside>
+
+      <div class="cap-new__panels">
+
+        <div class="panel active" id="cap-ext">
+          <div class="panel-inner">
+            <div class="panel-title">Extension management</div>
+            <p class="panel-lead">Control which extensions and plugins are allowed to run across your organization's browsers.</p>
+            <div class="mock">
+              <div class="mock-head">
+                <span class="mock-chip">Add-on control</span>
+                <div class="mock-filters"><span class="mock-pill accent">Managed</span><span class="mock-pill">All browsers</span></div>
+              </div>
+              <div class="mock-table">
+                <div class="mock-row-head cols4"><span>Add-on</span><span>Browser</span><span>Type</span><span>Status</span></div>
+                <div class="mock-row-data cols4"><span>Unknown coupon toolbar</span><span>Chrome</span><span>Extension</span><span class="badge badge-red">Blocked</span></div>
+                <div class="mock-row-data cols4"><span>Legacy helper object</span><span>IE</span><span>BHO</span><span class="badge badge-yellow">Review</span></div>
+                <div class="mock-row-data cols4"><span>Password manager</span><span>Edge</span><span>Extension</span><span class="badge badge-green">Allowed</span></div>
+              </div>
             </div>
           </div>
-        </aside>
-        <div class="cap__panels">
-          <article class="cap__panel is-active" data-panel="insights">
-            <div class="cap__copy">
-              <h3 class="h2">Browser Hardening Policies</h3>
-              <p class="lead">Deploy and enforce secure browser configurations across all endpoints from a centralized console.</p>
-            </div>
-            <div class="cap__visual mock mock--policy">
-              <div class="mock__policy-head">
-                <span class="mock__chip">Browser_Hardening_Baseline</span>
-                <button class="mock__btn mock__btn--primary">Deploy</button>
+        </div>
+
+        <div class="panel" id="cap-web">
+          <div class="panel-inner">
+            <div class="panel-title">Web filter</div>
+            <p class="panel-lead">Allow or block websites using AI-powered content categories to enforce browsing policies and stay ahead of evolving web threats.</p>
+            <div class="mock">
+              <div class="mock-head">
+                <span class="mock-chip">Website categorization</span>
+                <div class="mock-filters"><span class="mock-pill accent">Real-time AI</span></div>
               </div>
-              <div class="mock__policy-section mock__policy-section--hl">
-                <div class="mock__policy-section-title">Security configuration</div>
-                <div class="mock__policy-row mock__policy-row--toggle"><span>Block password saving in browsers</span><span class="mock__toggle mock__toggle--on" aria-label="on"></span></div>
-                <div class="mock__policy-row mock__policy-row--toggle"><span>Disable autofill for sensitive forms</span><span class="mock__toggle mock__toggle--on" aria-label="on"></span></div>
-                <div class="mock__policy-row mock__policy-row--toggle"><span>Prevent changes to managed browser settings</span><span class="mock__toggle mock__toggle--on" aria-label="on"></span></div>
-              </div>
-              <div class="mock__policy-section">
-                <div class="mock__policy-section-title">Policy scope</div>
-                <div class="mock__policy-row"><span>Target group</span><span class="mock__select">Finance endpoints</span></div>
-                <div class="mock__policy-row"><span>Browsers</span><span class="mock__select">Chrome, Edge, Firefox</span></div>
+              <div class="mock-table">
+                <div class="mock-row-head cols3"><span>Website</span><span>Category</span><span>Policy</span></div>
+                <div class="mock-row-data cols3"><span>new-saas.example</span><span>Business</span><span class="badge badge-green">Allowed</span></div>
+                <div class="mock-row-data cols3"><span>unknown-games.example</span><span>Games</span><span class="badge badge-red">Blocked</span></div>
+                <div class="mock-row-data cols3"><span>new-fileshare.example</span><span>File sharing</span><span class="badge badge-yellow">Review</span></div>
               </div>
             </div>
-          </article>
-          <article class="cap__panel" data-panel="configs">
-            <div class="cap__copy">
-              <h3 class="h2">Browser Lockdown </h3>
-              <p class="lead">Run browsers in kiosk mode with a whitelist of trusted sites to enforce controlled browsing.</p>
+          </div>
+        </div>
+
+        <div class="panel" id="cap-file">
+          <div class="panel-inner">
+            <div class="panel-title">File activity restriction</div>
+            <p class="panel-lead">Block unauthorized file uploads and downloads through the browser to ensure sensitive data only moves through trusted, IT-approved sources.</p>
+            <div class="mock">
+              <div class="mock-head">
+                <span class="mock-chip">Download_Control_Policy</span>
+                <button class="mock-btn">Save policy</button>
+              </div>
+              <div class="mock-section" style="background:var(--uems-tint-3-surface)">
+                <div class="mock-section-title">Download rules</div>
+                <div class="mock-row"><span>Executable files</span><span class="mock-select block">Block</span></div>
+                <div class="mock-row"><span>Compressed archives</span><span class="mock-select">Allow from trusted sites</span></div>
+                <div class="mock-row"><span>Unknown / uncategorized sites</span><span class="mock-select block">Restrict</span></div>
+              </div>
+              <div class="mock-section">
+                <div class="mock-section-title">Upload rules</div>
+                <div class="mock-row"><span>Block uploads to personal cloud storage</span><span class="mock-toggle on"></span></div>
+                <div class="mock-row"><span>Policy action</span><span class="mock-select">Warn and log</span></div>
+              </div>
             </div>
-            <div class="cap__visual mock mock--policy mock--encrypt">
-              <div class="mock__policy-head">
-                <span class="mock__chip">Kiosk_Browsing_Policy</span>
-                <button class="mock__btn mock__btn--primary">Save policy</button>
+          </div>
+        </div>
+
+        <div class="panel" id="cap-lock">
+          <div class="panel-inner">
+            <div class="panel-title">Browser lockdown</div>
+            <p class="panel-lead">Run browsers in kiosk mode with a whitelist of trusted sites to enforce controlled browsing.</p>
+            <div class="mock">
+              <div class="mock-head">
+                <span class="mock-chip">Kiosk_Browsing_Policy</span>
+                <button class="mock-btn">Save policy</button>
               </div>
-              <div class="mock__policy-section mock__policy-section--hl">
-                <div class="mock__policy-section-title">Lockdown controls</div>
-                <div class="mock__policy-row"><span>Allowed websites</span><span class="mock__select">Approved list only</span></div>
-                <div class="mock__policy-row mock__policy-row--toggle"><span>Disable address bar and navigation controls</span><span class="mock__toggle mock__toggle--on" aria-label="on"></span></div>
-                <div class="mock__policy-row mock__policy-row--toggle"><span>Disable menus, toolbars, and browser shortcuts</span><span class="mock__toggle mock__toggle--on" aria-label="on"></span></div>
+              <div class="mock-section" style="background:var(--uems-tint-3-surface)">
+                <div class="mock-section-title">Lockdown controls</div>
+                <div class="mock-row"><span>Allowed websites</span><span class="mock-select">Approved list only</span></div>
+                <div class="mock-row"><span>Disable address bar and navigation</span><span class="mock-toggle on"></span></div>
+                <div class="mock-row"><span>Disable menus, toolbars, shortcuts</span><span class="mock-toggle on"></span></div>
               </div>
-              <div class="mock__restrict" aria-hidden="true">
-                <div class="mock__restrict-head"><span class="mock__restrict-warn">!</span><span class="mock__restrict-title">Access restricted</span><button class="mock__restrict-close">×</button></div>
-                <div class="mock__restrict-body">
-                  <p class="mock__restrict-msg">This site is not available in kiosk browsing mode.</p>
-                  <dl class="mock__restrict-meta"><dt>Policy</dt><dd>Approved sites only</dd><dt>Action</dt><dd>Blocked</dd></dl>
-                  <div class="mock__restrict-actions"><button class="mock__btn">OK</button></div>
+              <div class="restrict-box">
+                <div class="restrict-head">
+                  <div class="restrict-warn">!</div>
+                  <span>Access restricted</span>
+                </div>
+                <div class="restrict-body">
+                  <p class="restrict-msg">This site is not available in kiosk browsing mode.</p>
+                  <dl class="restrict-dl"><dt>Policy</dt><dd>Approved sites only</dd><dt>Action</dt><dd>Blocked</dd></dl>
                 </div>
               </div>
             </div>
-          </article>
-          <article class="cap__panel" data-panel="addons">
-            <div class="cap__copy">
-              <h3 class="h2">Extension & Add-on Management</h3>
-              <p class="lead">Control which extensions and plugins are allowed to run across your organization's browsers.</p>
-            </div>
-            <div class="cap__visual mock mock--audit">
-              <div class="mock__audit-head"><span class="mock__audit-title">Add-on Control</span>
-                <div class="mock__audit-filters"><span class="mock__pill mock__pill--accent">Managed</span><span class="mock__pill">All browsers</span></div>
-              </div>
-              <div class="mock__audit-table">
-                <div class="mock__audit-row mock__audit-row--head"><span>Add-on</span><span>Browser</span><span>Type</span><span>Action</span></div>
-                <div class="mock__audit-row"><span>Unknown coupon toolbar</span><span>Chrome</span><span>Extension</span><span class="badge badge--red">Blocked</span></div>
-                <div class="mock__audit-row"><span>Legacy helper object</span><span>IE</span><span>BHO</span><span class="badge badge--yellow">Review</span></div>
-                <div class="mock__audit-row"><span>Password manager</span><span>Edge</span><span>Extension</span><span class="badge badge--green">Allowed</span></div>
-              </div>
-            </div>
-          </article>
-          <article class="cap__panel" data-panel="restriction">
-            <div class="cap__copy">
-              <h3 class="h2">AI-Powered Website Categorization</h3>
-              <p class="lead">Automatically classify unknown websites in real time to keep web filtering accurate against new and emerging threats.</p>
-            </div>
-            <div class="cap__visual mock mock--temp">
-              <div class="mock__audit-head"><span class="mock__audit-title">Website Categorization</span>
-                <div class="mock__audit-filters"><span class="mock__pill mock__pill--accent">Real-time analysis</span></div>
-              </div>
-              <div class="mock__temp-table">
-                <div class="mock__temp-row mock__temp-row--head"><span>Website</span><span>Category</span><span>Policy</span></div>
-                <div class="mock__temp-row"><span>new-saas.example</span><span>Business</span><span class="badge badge--green">Allowed</span></div>
-                <div class="mock__temp-row"><span>unknown-games.example</span><span>Games</span><span class="badge badge--red">Blocked</span></div>
-                <div class="mock__temp-row"><span>new-fileshare.example</span><span>File sharing</span><span class="badge badge--yellow">Review</span></div>
-              </div>
-            </div>
-          </article>
-          <article class="cap__panel" data-panel="router">
-            <div class="cap__copy">
-              <h3 class="h2">Browser Compliance Reporting</h3>
-              <p class="lead">Measure and report on browser security compliance against CIS and STIG standards across every endpoint.</p>
-            </div>
-            <div class="cap__visual mock mock--policy">
-              <div class="mock__policy-head"><span class="mock__chip">Download_Control_Policy</span></div>
-              <div class="mock__policy-section mock__policy-section--hl">
-                <div class="mock__policy-section-title">Download rules</div>
-                <div class="mock__policy-row"><span>Executable files</span><span class="mock__select mock__select--block">Block</span></div>
-                <div class="mock__policy-row"><span>Compressed archives</span><span class="mock__select">Allow from trusted sites</span></div>
-                <div class="mock__policy-row"><span>Unknown or uncategorized sites</span><span class="mock__select mock__select--block">Restrict</span></div>
-                <div class="mock__policy-row"><span>Policy action</span><span class="mock__select">Warn and log</span></div>
-              </div>
-            </div>
-          </article>
-          <article class="cap__panel" data-panel="isolation">
-            <div class="cap__copy">
-              <h3 class="h2">Lockdown, Isolation &amp; Web Filter</h3>
-              <p class="lead">Use kiosk-style browser lockdown, isolate untrusted browsing, control website access, and
-                restrict unauthorized browser uploads or downloads.</p>
-            </div>
-            <div class="cap__visual mock mock--audit">
-              <div class="mock__audit-head"><span class="mock__audit-title">Compliance Summary</span>
-                <div class="mock__audit-filters"><span class="mock__pill mock__pill--accent">CIS</span><span class="mock__pill">STIG</span></div>
-              </div>
-              <div class="mock__audit-table">
-                <div class="mock__audit-row mock__audit-row--head"><span>Check</span><span>Browser</span><span>Endpoints</span><span>Status</span></div>
-                <div class="mock__audit-row"><span>Password manager disabled</span><span>Chrome</span><span>128</span><span class="badge badge--green">Pass</span></div>
-                <div class="mock__audit-row"><span>Pop-ups restricted</span><span>Edge</span><span>96</span><span class="badge badge--green">Pass</span></div>
-                <div class="mock__audit-row"><span>Risky protocol handlers</span><span>Firefox</span><span>14</span><span class="badge badge--yellow">Review</span></div>
-              </div>
-            </div>
-          </article>
+          </div>
         </div>
+
+        <div class="panel" id="cap-restrict">
+          <div class="panel-inner">
+            <div class="panel-title">Browser restriction</div>
+            <p class="panel-lead">Mandate the use of only approved browsers across your organization to eliminate cross-browser vulnerabilities.</p>
+            <div class="mock">
+              <div class="mock-head">
+                <span class="mock-chip">Browser_Allowlist_Policy</span>
+                <button class="mock-btn">Deploy</button>
+              </div>
+              <div class="mock-section" style="background:var(--uems-tint-3-surface)">
+                <div class="mock-section-title">Approved browsers</div>
+                <div class="mock-row"><span>Google Chrome (latest)</span><span class="badge badge-green">Allowed</span></div>
+                <div class="mock-row"><span>Microsoft Edge (latest)</span><span class="badge badge-green">Allowed</span></div>
+                <div class="mock-row"><span>Firefox ESR</span><span class="badge badge-yellow">Conditional</span></div>
+                <div class="mock-row"><span>Any other browser</span><span class="badge badge-red">Blocked</span></div>
+              </div>
+              <div class="mock-section">
+                <div class="mock-section-title">Enforcement</div>
+                <div class="mock-row"><span>Redirect to approved browser on launch</span><span class="mock-toggle on"></span></div>
+                <div class="mock-row"><span>Log non-compliant browser usage</span><span class="mock-toggle on"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" id="cap-dlp">
+          <div class="panel-inner">
+            <div class="panel-title">Data leakage prevention</div>
+            <p class="panel-lead">Stop enterprise data leakage by disabling risky browser features and blocking employees from pasting sensitive information into generative AI sites.</p>
+            <div class="mock">
+              <div class="mock-head">
+                <span class="mock-chip">DLP_Browser_Policy</span>
+                <button class="mock-btn">Deploy</button>
+              </div>
+              <div class="mock-section" style="background:var(--uems-tint-3-surface)">
+                <div class="mock-section-title">Disabled features</div>
+                <div class="mock-row"><span>Disable autofill on sensitive forms</span><span class="mock-toggle on"></span></div>
+                <div class="mock-row"><span>Disable browser print</span><span class="mock-toggle on"></span></div>
+                <div class="mock-row"><span>Disable browser sync / cloud save</span><span class="mock-toggle on"></span></div>
+              </div>
+              <div class="mock-section">
+                <div class="mock-section-title">AI site controls <span class="tag tag-ai">Generative AI</span></div>
+                <div class="leakage-row"><span>Block paste into ChatGPT</span><span class="badge badge-red">Blocked</span></div>
+                <div class="leakage-row"><span>Block paste into Google Gemini</span><span class="badge badge-red">Blocked</span></div>
+                <div class="leakage-row"><span>Block paste into Copilot</span><span class="badge badge-red">Blocked</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" id="cap-comp">
+          <div class="panel-inner">
+            <div class="panel-title">Browser compliance reporting</div>
+            <p class="panel-lead">Measure and report on browser security compliance against CIS and STIG standards across every endpoint.</p>
+            <div class="mock">
+              <div class="mock-head">
+                <span class="mock-chip">Compliance summary</span>
+                <div class="mock-filters"><span class="mock-pill accent">CIS</span><span class="mock-pill">STIG</span></div>
+              </div>
+              <div class="mock-table">
+                <div class="mock-row-head cols4"><span>Check</span><span>Browser</span><span>Endpoints</span><span>Status</span></div>
+                <div class="mock-row-data cols4"><span>Password manager disabled</span><span>Chrome</span><span>128</span><span class="badge badge-green">Pass</span></div>
+                <div class="mock-row-data cols4"><span>Pop-ups restricted</span><span>Edge</span><span>96</span><span class="badge badge-green">Pass</span></div>
+                <div class="mock-row-data cols4"><span>Risky protocol handlers</span><span>Firefox</span><span>14</span><span class="badge badge-yellow">Review</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<script>
+function capTab(btn, panelId) {
+  var nav = btn.closest('.tabstrip-new');
+  nav.querySelectorAll('.tab-btn').forEach(function(b) {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected', 'false');
+  });
+  document.querySelectorAll('.cap-new__panels .panel').forEach(function(p) {
+    p.classList.remove('active');
+  });
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
+  document.getElementById(panelId).classList.add('active');
+}
+</script>
+
+<script>
+function switchTab(btn, panelId) {
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected', 'false');
+  });
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
+  document.getElementById('panel-' + panelId).classList.add('active');
+}
+</script>
   <!-- ─────────── SUPPORTED BROWSERS ─────────── -->
   <section class="browser-support" id="browsers">
     <div class="container">
