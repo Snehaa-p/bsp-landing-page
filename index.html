@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 
@@ -3434,6 +3433,18 @@
       min-width: 220px;
     }
 
+    .pcard__cta-wrap {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @media (max-width: 540px) {
+      .pcard__cta-wrap { flex-direction: column; gap: 8px; }
+      .pcard__cta-wrap .btn { width: 100%; }
+    }
+
     .pcard__note {
       margin: 0;
       font-size: var(--uems-font-size-body-sm);
@@ -5762,7 +5773,7 @@
   <!-- CAPABILITIES -->
  <style>
 .cap-new { font-family: var(--uems-font-body); padding: 80px 0; background: #fff; }
-.cap-new__layout { display: grid; grid-template-columns: 220px 1fr; gap: 1.5rem; align-items: start; }
+.cap-new__layout { display: grid; grid-template-columns: 260px 1fr; gap: 1.5rem; align-items: start; }
 .cap-new .tabstrip-new { display: flex; flex-direction: column; gap: 4px; }
 .cap-new .tab-btn {
   display: flex; align-items: center; gap: 10px; padding: 10px 14px;
@@ -5911,122 +5922,124 @@
   <div class="container">
     <header class="section__head section__head--center">
       <h2 class="h1">Manage and secure enterprise browsers from one console</h2>
-      <p class="section__sub">Use Browser Security Plus to control extensions, filter the web, restrict file activity, lock down browsers, and prevent data leaks.</p>
+      <p class="section__sub">Use Browser Security Plus to enforce browser settings, manage extensions, control websites, prevent data loss, lock down access, and prove compliance.</p>
     </header>
 
     <div class="cap-new__layout">
       <aside>
         <nav class="tabstrip-new" role="tablist" aria-label="Capabilities">
-          <button class="tab-btn active" role="tab" aria-selected="true" onclick="capTab(this,'cap-ext')">Extension management</button>
-          <button class="tab-btn" role="tab" aria-selected="false" onclick="capTab(this,'cap-web')">Web filter</button>
-          <button class="tab-btn" role="tab" aria-selected="false" onclick="capTab(this,'cap-file')">File activity restriction</button>
-          <button class="tab-btn" role="tab" aria-selected="false" onclick="capTab(this,'cap-lock')">Browser lockdown</button>
-          <button class="tab-btn" role="tab" aria-selected="false" onclick="capTab(this,'cap-restrict')">Browser restriction</button>
-          <button class="tab-btn" role="tab" aria-selected="false" onclick="capTab(this,'cap-dlp')">Data leakage prevention</button>
-          <button class="tab-btn" role="tab" aria-selected="false" onclick="capTab(this,'cap-comp')">Browser compliance reporting</button>
+          <button class="tab-btn active" role="tab" aria-selected="true" onclick="capTab(this,'cap-settings')">Browser Setting Management</button>
+          <button class="tab-btn" role="tab" aria-selected="false" onclick="capTab(this,'cap-ext')">Extension Management</button>
+          <button class="tab-btn" role="tab" aria-selected="false" onclick="capTab(this,'cap-ai-web')">AI-Powered Website Control</button>
+          <button class="tab-btn" role="tab" aria-selected="false" onclick="capTab(this,'cap-ai-dlp')">AI-Powered Browser DLP</button>
+          <button class="tab-btn" role="tab" aria-selected="false" onclick="capTab(this,'cap-lockdown')">Browser Restriction &amp; Lockdown</button>
+          <button class="tab-btn" role="tab" aria-selected="false" onclick="capTab(this,'cap-compliance')">Browser Compliance Reporting</button>
         </nav>
       </aside>
 
       <div class="cap-new__panels">
 
-        <div class="panel active" id="cap-ext">
+        <div class="panel active" id="cap-settings">
           <div class="panel-inner">
-            <div class="panel-title">Extension management</div>
+            <div class="panel-title">Browser Setting Management</div>
+            <p class="panel-lead">Enforce uniform security policies across all enterprise browsers by centrally managing corporate homepages, cookie usage, downloads and other security parameters.</p>
+            <div class="mock">
+              <div class="mock-head">
+                <span class="mock-chip">Enterprise_Browser_Baseline</span>
+                <button class="mock-btn">Deploy policy</button>
+              </div>
+              <div class="mock-section" style="background:var(--uems-tint-3-surface)">
+                <div class="mock-section-title">Corporate defaults</div>
+                <div class="mock-row"><span>Homepage</span><span class="mock-select">intranet.acme.example</span></div>
+                <div class="mock-row"><span>Startup pages</span><span class="mock-select">Security portal + SSO</span></div>
+                <div class="mock-row"><span>Default search provider</span><span class="mock-select">Managed</span></div>
+              </div>
+              <div class="mock-section">
+                <div class="mock-section-title">Security parameters</div>
+                <div class="mock-row"><span>Block third-party cookies</span><span class="mock-toggle on"></span></div>
+                <div class="mock-row"><span>Restrict downloads from unknown sites</span><span class="mock-toggle on"></span></div>
+                <div class="mock-row"><span>Enforce safe browsing protection</span><span class="mock-toggle on"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" id="cap-ext">
+          <div class="panel-inner">
+            <div class="panel-title">Extension Management</div>
             <p class="panel-lead">Control which extensions and plugins are allowed to run across your organization's browsers.</p>
             <div class="mock">
               <div class="mock-head">
-                <span class="mock-chip">Add-on control</span>
+                <span class="mock-chip">Extension_Allowlist_Policy</span>
                 <div class="mock-filters"><span class="mock-pill accent">Managed</span><span class="mock-pill">All browsers</span></div>
               </div>
               <div class="mock-table">
-                <div class="mock-row-head cols4"><span>Add-on</span><span>Browser</span><span>Type</span><span>Status</span></div>
-                <div class="mock-row-data cols4"><span>Unknown coupon toolbar</span><span>Chrome</span><span>Extension</span><span class="badge badge-red">Blocked</span></div>
-                <div class="mock-row-data cols4"><span>Legacy helper object</span><span>IE</span><span>BHO</span><span class="badge badge-yellow">Review</span></div>
-                <div class="mock-row-data cols4"><span>Password manager</span><span>Edge</span><span>Extension</span><span class="badge badge-green">Allowed</span></div>
+                <div class="mock-row-head cols4"><span>Extension / plugin</span><span>Browser</span><span>Risk</span><span>Status</span></div>
+                <div class="mock-row-data cols4"><span>Unknown coupon toolbar</span><span>Chrome</span><span>High</span><span class="badge badge-red">Blocked</span></div>
+                <div class="mock-row-data cols4"><span>Screen recorder plugin</span><span>Edge</span><span>Medium</span><span class="badge badge-yellow">Review</span></div>
+                <div class="mock-row-data cols4"><span>Approved password manager</span><span>Firefox</span><span>Low</span><span class="badge badge-green">Allowed</span></div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="panel" id="cap-web">
+        <div class="panel" id="cap-ai-web">
           <div class="panel-inner">
-            <div class="panel-title">Web filter</div>
+            <div class="panel-title">AI-Powered Website Control</div>
             <p class="panel-lead">Allow or block websites using AI-powered content categories to enforce browsing policies and stay ahead of evolving web threats.</p>
             <div class="mock">
               <div class="mock-head">
-                <span class="mock-chip">Website categorization</span>
-                <div class="mock-filters"><span class="mock-pill accent">Real-time AI</span></div>
+                <span class="mock-chip">AI_Web_Category_Engine</span>
+                <div class="mock-filters"><span class="mock-pill accent">Real-time AI</span><span class="mock-pill">Policy active</span></div>
               </div>
               <div class="mock-table">
-                <div class="mock-row-head cols3"><span>Website</span><span>Category</span><span>Policy</span></div>
-                <div class="mock-row-data cols3"><span>new-saas.example</span><span>Business</span><span class="badge badge-green">Allowed</span></div>
-                <div class="mock-row-data cols3"><span>unknown-games.example</span><span>Games</span><span class="badge badge-red">Blocked</span></div>
-                <div class="mock-row-data cols3"><span>new-fileshare.example</span><span>File sharing</span><span class="badge badge-yellow">Review</span></div>
+                <div class="mock-row-head cols3"><span>Website</span><span>AI category</span><span>Policy</span></div>
+                <div class="mock-row-data cols3"><span>finance-suite.example</span><span>Business</span><span class="badge badge-green">Allowed</span></div>
+                <div class="mock-row-data cols3"><span>unknown-share.example</span><span>File sharing</span><span class="badge badge-yellow">Review</span></div>
+                <div class="mock-row-data cols3"><span>promo-games.example</span><span>Games</span><span class="badge badge-red">Blocked</span></div>
+                <div class="mock-row-data cols3"><span>fresh-domain.example</span><span>Untrusted</span><span class="badge badge-red">Blocked</span></div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="panel" id="cap-file">
+        <div class="panel" id="cap-ai-dlp">
           <div class="panel-inner">
-            <div class="panel-title">File activity restriction</div>
-            <p class="panel-lead">Block unauthorized file uploads and downloads through the browser to ensure sensitive data only moves through trusted, IT-approved sources.</p>
+            <div class="panel-title">AI-Powered Browser DLP</div>
+            <p class="panel-lead">Block unauthorized file uploads and downloads, disable risky features such as autofill, print, and sync, and prevent employees from typing or pasting sensitive information into generative AI sites.</p>
             <div class="mock">
               <div class="mock-head">
-                <span class="mock-chip">Download_Control_Policy</span>
-                <button class="mock-btn">Save policy</button>
+                <span class="mock-chip">Browser_DLP_Policy</span>
+                <button class="mock-btn">Deploy controls</button>
               </div>
               <div class="mock-section" style="background:var(--uems-tint-3-surface)">
-                <div class="mock-section-title">Download rules</div>
-                <div class="mock-row"><span>Executable files</span><span class="mock-select block">Block</span></div>
-                <div class="mock-row"><span>Compressed archives</span><span class="mock-select">Allow from trusted sites</span></div>
-                <div class="mock-row"><span>Unknown / uncategorized sites</span><span class="mock-select block">Restrict</span></div>
+                <div class="mock-section-title">File movement controls</div>
+                <div class="mock-row"><span>Block uploads to personal cloud apps</span><span class="mock-toggle on"></span></div>
+                <div class="mock-row"><span>Block downloads from uncategorized sites</span><span class="mock-toggle on"></span></div>
+                <div class="mock-row"><span>Log attempted file transfers</span><span class="mock-toggle on"></span></div>
               </div>
               <div class="mock-section">
-                <div class="mock-section-title">Upload rules</div>
-                <div class="mock-row"><span>Block uploads to personal cloud storage</span><span class="mock-toggle on"></span></div>
-                <div class="mock-row"><span>Policy action</span><span class="mock-select">Warn and log</span></div>
+                <div class="mock-section-title">Risky browser features</div>
+                <div class="leakage-row"><span>Autofill</span><span class="badge badge-red">Disabled</span></div>
+                <div class="leakage-row"><span>Print</span><span class="badge badge-red">Disabled</span></div>
+                <div class="leakage-row"><span>Browser sync</span><span class="badge badge-red">Disabled</span></div>
+              </div>
+              <div class="mock-section">
+                <div class="mock-section-title">Generative AI protection <span class="tag tag-ai">AI DLP</span></div>
+                <div class="leakage-row"><span>Typing source code into AI chat</span><span class="badge badge-red">Blocked</span></div>
+                <div class="leakage-row"><span>Pasting customer records into AI chat</span><span class="badge badge-red">Blocked</span></div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="panel" id="cap-lock">
+        <div class="panel" id="cap-lockdown">
           <div class="panel-inner">
-            <div class="panel-title">Browser lockdown</div>
-            <p class="panel-lead">Run browsers in kiosk mode with a whitelist of trusted sites to enforce controlled browsing.</p>
+            <div class="panel-title">Browser Restriction &amp; Lockdown</div>
+            <p class="panel-lead">Eliminate cross-browser vulnerabilities by mandating the use of only IT-approved browsers and run browsers in kiosk mode with a whitelist of trusted sites to enforce controlled browsing.</p>
             <div class="mock">
               <div class="mock-head">
-                <span class="mock-chip">Kiosk_Browsing_Policy</span>
-                <button class="mock-btn">Save policy</button>
-              </div>
-              <div class="mock-section" style="background:var(--uems-tint-3-surface)">
-                <div class="mock-section-title">Lockdown controls</div>
-                <div class="mock-row"><span>Allowed websites</span><span class="mock-select">Approved list only</span></div>
-                <div class="mock-row"><span>Disable address bar and navigation</span><span class="mock-toggle on"></span></div>
-                <div class="mock-row"><span>Disable menus, toolbars, shortcuts</span><span class="mock-toggle on"></span></div>
-              </div>
-              <div class="restrict-box">
-                <div class="restrict-head">
-                  <div class="restrict-warn">!</div>
-                  <span>Access restricted</span>
-                </div>
-                <div class="restrict-body">
-                  <p class="restrict-msg">This site is not available in kiosk browsing mode.</p>
-                  <dl class="restrict-dl"><dt>Policy</dt><dd>Approved sites only</dd><dt>Action</dt><dd>Blocked</dd></dl>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel" id="cap-restrict">
-          <div class="panel-inner">
-            <div class="panel-title">Browser restriction</div>
-            <p class="panel-lead">Mandate the use of only approved browsers across your organization to eliminate cross-browser vulnerabilities.</p>
-            <div class="mock">
-              <div class="mock-head">
-                <span class="mock-chip">Browser_Allowlist_Policy</span>
+                <span class="mock-chip">Approved_Browser_Kiosk_Policy</span>
                 <button class="mock-btn">Deploy</button>
               </div>
               <div class="mock-section" style="background:var(--uems-tint-3-surface)">
@@ -6037,53 +6050,40 @@
                 <div class="mock-row"><span>Any other browser</span><span class="badge badge-red">Blocked</span></div>
               </div>
               <div class="mock-section">
-                <div class="mock-section-title">Enforcement</div>
-                <div class="mock-row"><span>Redirect to approved browser on launch</span><span class="mock-toggle on"></span></div>
-                <div class="mock-row"><span>Log non-compliant browser usage</span><span class="mock-toggle on"></span></div>
+                <div class="mock-section-title">Kiosk lockdown</div>
+                <div class="mock-row"><span>Allowed websites</span><span class="mock-select">Trusted sites only</span></div>
+                <div class="mock-row"><span>Disable address bar, menus, and shortcuts</span><span class="mock-toggle on"></span></div>
+                <div class="mock-row"><span>Launch in full-screen kiosk mode</span><span class="mock-toggle on"></span></div>
+              </div>
+              <div class="restrict-box">
+                <div class="restrict-head">
+                  <div class="restrict-warn">!</div>
+                  <span>Access restricted</span>
+                </div>
+                <div class="restrict-body">
+                  <p class="restrict-msg">This browser or website is outside the approved enterprise policy.</p>
+                  <dl class="restrict-dl"><dt>Policy</dt><dd>Trusted browsing only</dd><dt>Action</dt><dd>Blocked and logged</dd></dl>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="panel" id="cap-dlp">
+        <div class="panel" id="cap-compliance">
           <div class="panel-inner">
-            <div class="panel-title">Data leakage prevention</div>
-            <p class="panel-lead">Stop enterprise data leakage by disabling risky browser features and blocking employees from pasting sensitive information into generative AI sites.</p>
-            <div class="mock">
-              <div class="mock-head">
-                <span class="mock-chip">DLP_Browser_Policy</span>
-                <button class="mock-btn">Deploy</button>
-              </div>
-              <div class="mock-section" style="background:var(--uems-tint-3-surface)">
-                <div class="mock-section-title">Disabled features</div>
-                <div class="mock-row"><span>Disable autofill on sensitive forms</span><span class="mock-toggle on"></span></div>
-                <div class="mock-row"><span>Disable browser print</span><span class="mock-toggle on"></span></div>
-                <div class="mock-row"><span>Disable browser sync / cloud save</span><span class="mock-toggle on"></span></div>
-              </div>
-              <div class="mock-section">
-                <div class="mock-section-title">AI site controls <span class="tag tag-ai">Generative AI</span></div>
-                <div class="leakage-row"><span>Block paste into ChatGPT</span><span class="badge badge-red">Blocked</span></div>
-                <div class="leakage-row"><span>Block paste into Google Gemini</span><span class="badge badge-red">Blocked</span></div>
-                <div class="leakage-row"><span>Block paste into Copilot</span><span class="badge badge-red">Blocked</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel" id="cap-comp">
-          <div class="panel-inner">
-            <div class="panel-title">Browser compliance reporting</div>
+            <div class="panel-title">Browser Compliance Reporting</div>
             <p class="panel-lead">Measure and report on browser security compliance against CIS and STIG standards across every endpoint.</p>
             <div class="mock">
               <div class="mock-head">
-                <span class="mock-chip">Compliance summary</span>
-                <div class="mock-filters"><span class="mock-pill accent">CIS</span><span class="mock-pill">STIG</span></div>
+                <span class="mock-chip">Browser_Compliance_Report</span>
+                <div class="mock-filters"><span class="mock-pill accent">CIS v2.1</span><span class="mock-pill">STIG</span></div>
               </div>
               <div class="mock-table">
-                <div class="mock-row-head cols4"><span>Check</span><span>Browser</span><span>Endpoints</span><span>Status</span></div>
-                <div class="mock-row-data cols4"><span>Password manager disabled</span><span>Chrome</span><span>128</span><span class="badge badge-green">Pass</span></div>
-                <div class="mock-row-data cols4"><span>Pop-ups restricted</span><span>Edge</span><span>96</span><span class="badge badge-green">Pass</span></div>
-                <div class="mock-row-data cols4"><span>Risky protocol handlers</span><span>Firefox</span><span>14</span><span class="badge badge-yellow">Review</span></div>
+                <div class="mock-row-head cols4"><span>Control</span><span>Standard</span><span>Endpoints</span><span>Status</span></div>
+                <div class="mock-row-data cols4"><span>Unsafe extensions blocked</span><span>CIS</span><span>184</span><span class="badge badge-green">Pass</span></div>
+                <div class="mock-row-data cols4"><span>Autofill restricted</span><span>STIG</span><span>172</span><span class="badge badge-green">Pass</span></div>
+                <div class="mock-row-data cols4"><span>Download protection enforced</span><span>CIS</span><span>21</span><span class="badge badge-yellow">Review</span></div>
+                <div class="mock-row-data cols4"><span>Legacy browser launch blocked</span><span>STIG</span><span>9</span><span class="badge badge-red">Fail</span></div>
               </div>
             </div>
           </div>
@@ -6311,7 +6311,10 @@ Deploy and enforce browser policies across all browsers used in your environment
             <li>Policy-based enforcement across browsers</li>
             <li>Visibility and reporting for governance</li>
           </ul>
-          <div class="pcard__cta-wrap"><a href="#" class="btn btn--primary btn--lg pcard__cta">Free Trial</a></div>
+          <div class="pcard__cta-wrap">
+            <a href="#" class="btn btn--primary btn--lg pcard__cta">Free Trial</a>
+            <a href="downloads/BrowserSecurityPlus_setup.exe" class="btn btn--secondary btn--lg pcard__cta" download>Download</a>
+          </div>
           <p class="pcard__note">
             The more you scale, the lesser you pay per endpoint.<br />
             <a href="#" class="pcard__link">Get a personalized quote</a>
